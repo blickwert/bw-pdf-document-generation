@@ -51,15 +51,15 @@ table.pos th { background-color: #e6e7e8; text-align: left; font-family: lato; f
 table.pos td { padding: 1.1mm 2mm; font-size: 9pt; line-height: 4.4mm; }
 table.pos tr.summe td { border-top: 0.2mm solid #231f20; font-size: 8pt; }
 table.pos tr.summe td.betrag { text-align: right; }
-table.pos tr.summe.ende td { border-bottom: 0.2mm solid #231f20; }
+table.pos tr.summe.ende td { font-family: lato; font-weight: bold; border-bottom: 0.2mm solid #231f20; }
 
 .schluss { margin-top: 14.5mm; }
 
 /* Kopf-/Fußzeilen */
 table.hf { width: 100%; border-collapse: collapse; }
 table.hf td { vertical-align: top; padding: 0; }
-.adr  { font-size: 9pt; line-height: 4.4mm; }
-.kontakt { padding: 5.8mm 0 0 15mm; font-size: 10pt; line-height: 4.6mm; }
-.info { margin-top: 11.9mm; text-align: right; font-size: 9pt; line-height: 4.4mm; }
+table.hf td.adr { font-size: 9pt; line-height: 4.4mm; }
+table.hf td.kontakt { padding: 5.8mm 0 0 15mm; font-size: 10pt; line-height: 4.6mm; vertical-align: top; }
+table.hf td.info { padding-top: 11.9mm; text-align: right; font-size: 9pt; line-height: 4.4mm; }
 .lauf-kopf { text-align: right; font-size: 7pt; color: #444041; padding-top: 12mm; }
 .fuss { font-size: 8pt; line-height: 3.5mm; color: #444041; }

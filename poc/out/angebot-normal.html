@@ -1,7 +1,7 @@
 <style>
 /* ------------------------------------------------------------------
    Template "angebot" – CSS für mPDF (kein Flexbox/Grid/Variablen!)
-   Platzhalter /home/claude/bw-pdf-poc/assets setzt der Renderer auf den absoluten Pfad.
+   Platzhalter /home/user/bw-pdf-document-generation/poc/assets setzt der Renderer auf den absoluten Pfad.
    Maße aus dem Beispiel-PDF (A4 netto, ohne 3 mm Beschnitt).
    ------------------------------------------------------------------ */
 
@@ -15,7 +15,7 @@
     margin-footer: 18.5mm;
     header: html_running;
     footer: html_footer;
-    background: url('/home/claude/bw-pdf-poc/assets/bg-folge.jpg') no-repeat 0 0;
+    background: url('/home/user/bw-pdf-document-generation/poc/assets/bg-folge.jpg') no-repeat 0 0;
     background-image-resize: 6;
 }
 
@@ -26,7 +26,7 @@
     margin-header: 52.4mm;
     header: html_first;
     footer: html_footer;
-    background: url('/home/claude/bw-pdf-poc/assets/bg-first.jpg') no-repeat 0 0;
+    background: url('/home/user/bw-pdf-document-generation/poc/assets/bg-first.jpg') no-repeat 0 0;
     background-image-resize: 6;
 }
 
@@ -52,32 +52,32 @@ table.pos th { background-color: #e6e7e8; text-align: left; font-family: lato; f
 table.pos td { padding: 1.1mm 2mm; font-size: 9pt; line-height: 4.4mm; }
 table.pos tr.summe td { border-top: 0.2mm solid #231f20; font-size: 8pt; }
 table.pos tr.summe td.betrag { text-align: right; }
-table.pos tr.summe.ende td { border-bottom: 0.2mm solid #231f20; }
+table.pos tr.summe.ende td { font-family: lato; font-weight: bold; border-bottom: 0.2mm solid #231f20; }
 
 .schluss { margin-top: 14.5mm; }
 
 /* Kopf-/Fußzeilen */
 table.hf { width: 100%; border-collapse: collapse; }
 table.hf td { vertical-align: top; padding: 0; }
-.adr  { font-size: 9pt; line-height: 4.4mm; }
-.kontakt { padding: 5.8mm 0 0 15mm; font-size: 10pt; line-height: 4.6mm; }
-.info { margin-top: 11.9mm; text-align: right; font-size: 9pt; line-height: 4.4mm; }
+table.hf td.adr { font-size: 9pt; line-height: 4.4mm; }
+table.hf td.kontakt { padding: 5.8mm 0 0 15mm; font-size: 10pt; line-height: 4.6mm; vertical-align: top; }
+table.hf td.info { padding-top: 11.9mm; text-align: right; font-size: 9pt; line-height: 4.4mm; }
 .lauf-kopf { text-align: right; font-size: 7pt; color: #444041; padding-top: 12mm; }
 .fuss { font-size: 8pt; line-height: 3.5mm; color: #444041; }
 
 </style>
 <htmlpageheader name="first"><!-- Header nur für Seite 1. Grafiken (Streifen, Logo, Icons, Infobox-Fläche) kommen aus dem @page-Hintergrund,
-     hier steht nur Text (live, markierbar, per Shortcode befüllt). Layout per Tabelle: mPDF-sicher. -->
+     hier steht nur Text (live, markierbar, per Shortcode befüllt). Layout per Tabelle: mPDF-sicher.
+     Formatierung liegt auf den td-Zellen (Padding/Ausrichtung auf div in Header-Tabellen greift in mPDF nicht zuverlässig). -->
 <table class="hf"><tr>
-  <td style="width:117.2mm" class="adr">Dr. Günther Schmied,<br />Mag. Micha Kriebernegg<br />Rechtsanwälte<br />8010 Graz, Sackstraße 6<br /></td>
-  <td style="width:52.8mm">
-    <div class="kontakt">0650 3283533<br />info@blickwert.at<br />blickwert.at</div>
-    <div class="info">Kunde: schmied-kriebernegg<br />Nr. AN-2026-02<br />Datum: 23. 02. 2026</div>
-  </td>
+  <td rowspan="2" style="width:117.2mm" class="adr">Dr. Günther Schmied,<br />Mag. Micha Kriebernegg<br />Rechtsanwälte<br />8010 Graz, Sackstraße 6<br /></td>
+  <td class="kontakt">0650 3283533<br />info@blickwert.at<br />blickwert.at</td>
+</tr><tr>
+  <td class="info">Kunde: schmied-kriebernegg<br />Nr. AN-2026-02<br />Datum: 23. 02. 2026</td>
 </tr></table>
 </htmlpageheader><htmlpageheader name="running"><!-- Header für Seite 2..n. Leer, solange dokument.laufkopf nicht gesetzt ist.
      {PAGENO} und {nbpg} ersetzt mPDF selbst. -->
-<div class="lauf-kopf">AN-2026-02 &middot; Seite {PAGENO} von {nbpg}</div>
+
 </htmlpageheader><htmlpagefooter name="footer"><!-- Footer für alle Seiten außer der letzten (auf Seite 1 wie auf Folgeseiten gleich) -->
 <div class="fuss">David Wögerer &ndash; Blickwert sichtbar.strategisch.nah. | Raiffeisenbank Gratwein-Hitzendorf | IBAN: AT40 3813 8000 0504 9630<br />BIC: RZSTAT2G138 | Steuernummer: 027/0608-00 | Es gelten die aktuellen AGB und Datenschutzbestimmungen.<br />Diese sind einsehbar unter blickwert.at/agb/.</div>
 </htmlpagefooter><htmlpagefooter name="footerlast"><!-- Footer nur für die LETZTE Seite (wird per <sethtmlpagefooter> am Dokumentende aktiviert).
