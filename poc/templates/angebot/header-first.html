@@ -1,0 +1,9 @@
+<!-- Header nur für Seite 1. Grafiken (Streifen, Logo, Icons, Infobox-Fläche) kommen aus dem @page-Hintergrund,
+     hier steht nur Text (live, markierbar, per Shortcode befüllt). Layout per Tabelle: mPDF-sicher. -->
+<table class="hf"><tr>
+  <td style="width:117.2mm" class="adr">[bw_each source="kunde.adresse_zeilen"][bw_var key="zeile"]<br />[/bw_each]</td>
+  <td style="width:52.8mm">
+    <div class="kontakt">[bw_var key="firma.telefon"]<br />[bw_var key="firma.mail"]<br />[bw_var key="firma.web"]</div>
+    <div class="info">Kunde: [bw_var key="kunde.kuerzel"]<br />Nr. [bw_var key="dokument.nummer"]<br />Datum: [bw_var key="dokument.datum" format="date"]</div>
+  </td>
+</tr></table>

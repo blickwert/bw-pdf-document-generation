@@ -1,0 +1,24 @@
+<div class="titel">[bw_var key="dokument.titel"]</div>
+
+<h2 class="erste">Zielsetzung des Onlineangebots:</h2>
+<p>[bw_var key="zielsetzung"]</p>
+
+<h2>Projektablauf</h2>
+<p>[bw_var key="projektablauf_intro"]</p>
+[bw_each source="schritte"]<h3>[bw_var key="titel"]</h3>
+<p>[bw_var key="text"]</p>
+[/bw_each]
+
+<h2 style="margin-top:12mm">Angebotspositionen</h2>
+<table class="pos">
+  <thead><tr><th colspan="2">Beschreibung</th></tr></thead>
+  <tbody>
+    [bw_each source="positionen"]<tr><td colspan="2">[bw_var key="beschreibung"]</td></tr>
+    [/bw_each]
+    <tr class="summe"><td>Netto</td><td class="betrag">[bw_var key="summen.netto" format="money"]</td></tr>
+    <tr class="summe"><td>Standard USt ([bw_var key="summen.ust_satz"] %)</td><td class="betrag">[bw_var key="summen.ust" format="money"]</td></tr>
+    <tr class="summe ende"><td>Gesamt Brutto</td><td class="betrag">[bw_var key="summen.brutto" format="money"]</td></tr>
+  </tbody>
+</table>
+
+<p class="schluss">Vielen Dank für Ihr Interesse!<br />[bw_var key="firma.inhaber"]</p>

@@ -1,0 +1,49 @@
+{
+  "firma": {
+    "inhaber": "David Wögerer",
+    "marke": "Blickwert",
+    "claim": "sichtbar.strategisch.nah.",
+    "bank": "Raiffeisenbank Gratwein-Hitzendorf",
+    "iban": "AT40 3813 8000 0504 9630",
+    "bic": "RZSTAT2G138",
+    "steuernr": "027/0608-00",
+    "agb_url": "blickwert.at/agb/",
+    "telefon": "0650 3283533",
+    "mail": "info@blickwert.at",
+    "web": "blickwert.at"
+  },
+  "kunde": {
+    "kuerzel": "schmied-kriebernegg",
+    "adresse_zeilen": [
+      { "zeile": "Dr. Günther Schmied," },
+      { "zeile": "Mag. Micha Kriebernegg" },
+      { "zeile": "Rechtsanwälte" },
+      { "zeile": "8010 Graz, Sackstraße 6" }
+    ]
+  },
+  "dokument": {
+    "nummer": "AN-2026-02",
+    "datum": "2026-02-23",
+    "titel": "Angebot Internetauftritt sk-rae.at – Individual Standard",
+    "laufkopf": "1",
+    "schluss_hinweis": ""
+  },
+  "zielsetzung": "Der aktuelle Internetauftritt sk-rae.at soll im Rahmen einer Neugestaltung modernisiert werden. Hierfür wird das bisherige Design und vorhandene Inhalte analysiert und je nach Wünschen angepasst. Ziel ist ein moderner und technisch sauber umgesetzter Internetauftritt, der die bestehenden Inhalte strukturiert und zeitgemäß darstellt.",
+  "projektablauf_intro": "Der Entwicklungsprozess der Webseite erfolgt strukturiert und in enger Abstimmung mit dem Kunden. Ziel ist es, einen authentischen, hochwertigen und technisch sauberen Internetauftritt zu realisieren und Sie individuell zu repräsentieren.",
+  "schritte": [
+    { "titel": "1. Onboarding & Projektstart", "text": "Zu Beginn findet ein strukturiertes Onboarding statt, in dem Erwartungen, Ziele und Rahmenbedingungen gemeinsam definiert werden. Dabei werden zentrale Eckpunkte wie Zielgruppe, Tonalität und Funktionsumfang abgestimmt, um eine klare Basis für den weiteren Projektverlauf zu schaffen." },
+    { "titel": "2. Sammlung kundenseitiger Inhalte & Materialien", "text": "Es werden alle notwendigen kundenseitigen Inhalte zusammengetragen: Texte, Bildmaterial, vordefiniertes Logo, Farb- und Typografievorgaben sowie Beispiele für gewünschte visuelle Stimmungen. Diese Materialsammlung bildet das Fundament der konzeptionellen und gestalterischen Arbeit und wird die gewünschte Stimmung und Tonalität des Internetauftritts widerspiegeln. Wenn kundenseitig erwünscht, unterstützen wir Sie gerne beim Texten und Formulieren der Inhalte." },
+    { "titel": "3. Konzeption, Wireframing, Brand Design", "text": "Auf Basis der gesammelten Inhalte entsteht ein erstes Wireframe, das die zukünftige Seitenstruktur der Webseite und die Nutzerführung schematisch verdeutlicht. Dies schafft Orientierung und ein gemeinsames Verständnis über die spätere Gestaltung und Funktionalität. Zusätzlich wird ein Brand-Design erstellt, das wichtige Design-Elemente wie Farbpalette und Schriftauswahl festlegt." },
+    { "titel": "4. Technische Umsetzung", "text": "Im nächsten Schritt erfolgt die saubere und technisch DSGVO-orientierte Umsetzung der Webseite. Dies beinhaltet die Einrichtung relevanter Plugins, Template-/Design-Entwicklung sowie die Optimierung für verschiedene Endgeräte. Die Umsetzung erfolgt nach bestem Wissen und technischen Standards, ersetzt jedoch keine rechtliche Beratung." },
+    { "titel": "5. Tests, Livegang & Einschulung", "text": "Vor dem Livegang wird die gesamte Webseite geprüft. Nach der Abnahme durch den Kunden wird die Seite für den Livegang vorbereitet und veröffentlicht. Im Anschluss erfolgt eine persönliche Einschulung." }
+  ],
+  "positionen": [
+    { "beschreibung": "Analyse des bestehenden Internetauftritts" },
+    { "beschreibung": "Modernisierung des Layouts auf Basis von bestehendem Corporate Design / Farbschemata" },
+    { "beschreibung": "Strukturierung und Optimierung bestehender Inhalte" },
+    { "beschreibung": "Technische Umsetzung (responsive & DSGVO-orientiert)" },
+    { "beschreibung": "Integration typischer Webseiten-Elemente (Leistungen, Team, Kontakt etc.)" },
+    { "beschreibung": "Basis-Optimierung für Ladezeiten und Darstellung" }
+  ],
+  "summen": { "netto": 2248.00, "ust_satz": 20 }
+}

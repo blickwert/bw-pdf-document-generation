@@ -1,0 +1,12 @@
+{
+    "name": "blickwert/bw-pdf-poc",
+    "description": "Proof of Concept: HTML-Template -> mehrseitiges PDF (Erstseite / laufende Seiten / Endseite) mit mPDF",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "mpdf/mpdf": "^8.2"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}

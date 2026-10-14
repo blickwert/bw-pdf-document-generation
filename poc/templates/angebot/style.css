@@ -1,0 +1,65 @@
+/* ------------------------------------------------------------------
+   Template "angebot" – CSS für mPDF (kein Flexbox/Grid/Variablen!)
+   Platzhalter {{ASSETS}} setzt der Renderer auf den absoluten Pfad.
+   Maße aus dem Beispiel-PDF (A4 netto, ohne 3 mm Beschnitt).
+   ------------------------------------------------------------------ */
+
+/* Laufende Seiten (2..n) */
+@page {
+    margin-top: 28.8mm;
+    margin-bottom: 33mm;
+    margin-left: 20mm;
+    margin-right: 20mm;
+    margin-header: 0mm;
+    margin-footer: 18.5mm;
+    header: html_running;
+    footer: html_footer;
+    background: url('{{ASSETS}}/bg-folge.jpg') no-repeat 0 0;
+    background-image-resize: 6;
+}
+
+/* Erste Seite: eigener Header, eigener Hintergrund, anderer Textbeginn.
+   Kein "size:" im @page, das Format kommt aus dem mPDF-Konstruktor (siehe Hinweis in README). */
+@page :first {
+    margin-top: 104mm;
+    margin-header: 52.4mm;
+    header: html_first;
+    footer: html_footer;
+    background: url('{{ASSETS}}/bg-first.jpg') no-repeat 0 0;
+    background-image-resize: 6;
+}
+
+body {
+    font-family: latolight;
+    font-size: 9pt;
+    line-height: 4.4mm;
+    color: #444041;
+}
+
+b, strong { font-family: lato; font-weight: bold; }
+p { margin: 0; }
+
+/* Überschriften */
+.titel { font-family: lato; font-size: 12pt; line-height: 5.1mm; color: #231f20; margin: 0 0 8.8mm 0; }
+h2     { font-family: lato; font-weight: bold; font-size: 11pt; line-height: 4.7mm; color: #231f20; margin: 14mm 0 0.4mm 0; }
+h2.erste { margin-top: 0; }
+h3     { font-family: latolight; font-style: italic; font-weight: normal; font-size: 9pt; line-height: 4.4mm; color: #231f20; margin: 3.6mm 0 0.6mm 0; }
+
+/* Angebotspositionen */
+table.pos { width: 163mm; border-collapse: collapse; margin-top: 8mm; }
+table.pos th { background-color: #e6e7e8; text-align: left; font-family: lato; font-weight: bold; font-size: 8pt; padding: 1.1mm 2mm; color: #231f20; }
+table.pos td { padding: 1.1mm 2mm; font-size: 9pt; line-height: 4.4mm; }
+table.pos tr.summe td { border-top: 0.2mm solid #231f20; font-size: 8pt; }
+table.pos tr.summe td.betrag { text-align: right; }
+table.pos tr.summe.ende td { border-bottom: 0.2mm solid #231f20; }
+
+.schluss { margin-top: 14.5mm; }
+
+/* Kopf-/Fußzeilen */
+table.hf { width: 100%; border-collapse: collapse; }
+table.hf td { vertical-align: top; padding: 0; }
+.adr  { font-size: 9pt; line-height: 4.4mm; }
+.kontakt { padding: 5.8mm 0 0 15mm; font-size: 10pt; line-height: 4.6mm; }
+.info { margin-top: 11.9mm; text-align: right; font-size: 9pt; line-height: 4.4mm; }
+.lauf-kopf { text-align: right; font-size: 7pt; color: #444041; padding-top: 12mm; }
+.fuss { font-size: 8pt; line-height: 3.5mm; color: #444041; }
