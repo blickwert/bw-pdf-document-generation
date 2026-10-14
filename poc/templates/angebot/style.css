@@ -47,13 +47,14 @@ h3     { font-family: latolight; font-style: italic; font-weight: normal; font-s
 
 /* Angebotspositionen */
 table.pos { width: 163mm; border-collapse: collapse; margin-top: 8mm; }
+table.pos tr { page-break-inside: avoid; }
 table.pos th { background-color: #e6e7e8; text-align: left; font-family: lato; font-weight: bold; font-size: 8pt; padding: 1.1mm 2mm; color: #231f20; }
 table.pos td { padding: 1.1mm 2mm; font-size: 9pt; line-height: 4.4mm; }
 table.pos tr.summe td { border-top: 0.2mm solid #231f20; font-size: 8pt; }
 table.pos tr.summe td.betrag { text-align: right; }
 table.pos tr.summe.ende td { font-family: lato; font-weight: bold; border-bottom: 0.2mm solid #231f20; }
 
-.schluss { margin-top: 14.5mm; }
+.schluss { margin-top: 14.5mm; page-break-inside: avoid; }
 
 /* Kopf-/Fußzeilen */
 table.hf { width: 100%; border-collapse: collapse; }

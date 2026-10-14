@@ -1,0 +1,110 @@
+<style>
+/* ------------------------------------------------------------------
+   Template "angebot" – CSS für mPDF (kein Flexbox/Grid/Variablen!)
+   Platzhalter /home/user/bw-pdf-document-generation/poc/assets setzt der Renderer auf den absoluten Pfad.
+   Maße aus dem Beispiel-PDF (A4 netto, ohne 3 mm Beschnitt).
+   ------------------------------------------------------------------ */
+
+/* Laufende Seiten (2..n) */
+@page {
+    margin-top: 28.8mm;
+    margin-bottom: 33mm;
+    margin-left: 20mm;
+    margin-right: 20mm;
+    margin-header: 0mm;
+    margin-footer: 18.5mm;
+    header: html_running;
+    footer: html_footer;
+    background: url('/home/user/bw-pdf-document-generation/poc/assets/bg-folge.jpg') no-repeat 0 0;
+    background-image-resize: 6;
+}
+
+/* Erste Seite: eigener Header, eigener Hintergrund, anderer Textbeginn.
+   Kein "size:" im @page, das Format kommt aus dem mPDF-Konstruktor (siehe Hinweis in README). */
+@page :first {
+    margin-top: 104mm;
+    margin-header: 52.4mm;
+    header: html_first;
+    footer: html_footer;
+    background: url('/home/user/bw-pdf-document-generation/poc/assets/bg-first.jpg') no-repeat 0 0;
+    background-image-resize: 6;
+}
+
+body {
+    font-family: latolight;
+    font-size: 9pt;
+    line-height: 4.4mm;
+    color: #444041;
+}
+
+b, strong { font-family: lato; font-weight: bold; }
+p { margin: 0; }
+
+/* Überschriften */
+.titel { font-family: lato; font-size: 12pt; line-height: 5.1mm; color: #231f20; margin: 0 0 8.8mm 0; }
+h2     { font-family: lato; font-weight: bold; font-size: 11pt; line-height: 4.7mm; color: #231f20; margin: 14mm 0 0.4mm 0; }
+h2.erste { margin-top: 0; }
+h3     { font-family: latolight; font-style: italic; font-weight: normal; font-size: 9pt; line-height: 4.4mm; color: #231f20; margin: 3.6mm 0 0.6mm 0; }
+
+/* Angebotspositionen */
+table.pos { width: 163mm; border-collapse: collapse; margin-top: 8mm; }
+table.pos tr { page-break-inside: avoid; }
+table.pos th { background-color: #e6e7e8; text-align: left; font-family: lato; font-weight: bold; font-size: 8pt; padding: 1.1mm 2mm; color: #231f20; }
+table.pos td { padding: 1.1mm 2mm; font-size: 9pt; line-height: 4.4mm; }
+table.pos tr.summe td { border-top: 0.2mm solid #231f20; font-size: 8pt; }
+table.pos tr.summe td.betrag { text-align: right; }
+table.pos tr.summe.ende td { font-family: lato; font-weight: bold; border-bottom: 0.2mm solid #231f20; }
+
+.schluss { margin-top: 14.5mm; page-break-inside: avoid; }
+
+/* Kopf-/Fußzeilen */
+table.hf { width: 100%; border-collapse: collapse; }
+table.hf td { vertical-align: top; padding: 0; }
+table.hf td.adr { font-size: 9pt; line-height: 4.4mm; }
+table.hf td.kontakt { padding: 5.8mm 0 0 15mm; font-size: 10pt; line-height: 4.6mm; vertical-align: top; }
+table.hf td.info { padding-top: 11.9mm; text-align: right; font-size: 9pt; line-height: 4.4mm; }
+.lauf-kopf { text-align: right; font-size: 7pt; color: #444041; padding-top: 12mm; }
+.fuss { font-size: 8pt; line-height: 3.5mm; color: #444041; }
+
+</style>
+<htmlpageheader name="first"><!-- Header nur für Seite 1. Grafiken (Streifen, Logo, Icons, Infobox-Fläche) kommen aus dem @page-Hintergrund,
+     hier steht nur Text (live, markierbar, per Shortcode befüllt). Layout per Tabelle: mPDF-sicher.
+     Formatierung liegt auf den td-Zellen (Padding/Ausrichtung auf div in Header-Tabellen greift in mPDF nicht zuverlässig). -->
+<table class="hf"><tr>
+  <td rowspan="2" style="width:117.2mm" class="adr">Dr. Günther Schmied,<br />Mag. Micha Kriebernegg<br />Rechtsanwälte<br />8010 Graz, Sackstraße 6<br /></td>
+  <td class="kontakt">0650 3283533<br />info@blickwert.at<br />blickwert.at</td>
+</tr><tr>
+  <td class="info">Kunde: schmied-kriebernegg<br />Nr. AN-2026-02<br />Datum: 23. 02. 2026</td>
+</tr></table>
+</htmlpageheader><htmlpageheader name="running"><!-- Header für Seite 2..n. Leer, solange dokument.laufkopf nicht gesetzt ist.
+     {PAGENO} und {nbpg} ersetzt mPDF selbst. -->
+
+</htmlpageheader><htmlpagefooter name="footer"><!-- Footer für alle Seiten außer der letzten (auf Seite 1 wie auf Folgeseiten gleich) -->
+<div class="fuss">David Wögerer &ndash; Blickwert sichtbar.strategisch.nah. | Raiffeisenbank Gratwein-Hitzendorf | IBAN: AT40 3813 8000 0504 9630<br />BIC: RZSTAT2G138 | Steuernummer: 027/0608-00 | Es gelten die aktuellen AGB und Datenschutzbestimmungen.<br />Diese sind einsehbar unter blickwert.at/agb/.</div>
+</htmlpagefooter><htmlpagefooter name="footerlast"><!-- Footer nur für die LETZTE Seite (wird per <sethtmlpagefooter> am Dokumentende aktiviert).
+     Gleicher Inhalt wie footer-running plus optionaler Zusatzzeile. Bei einseitigen Dokumenten gilt dieser Footer. -->
+<div class="fuss"><b>[ENDSEITEN-FOOTER AKTIV]</b><br />David Wögerer &ndash; Blickwert sichtbar.strategisch.nah. | Raiffeisenbank Gratwein-Hitzendorf | IBAN: AT40 3813 8000 0504 9630<br />BIC: RZSTAT2G138 | Steuernummer: 027/0608-00 | Es gelten die aktuellen AGB und Datenschutzbestimmungen.<br />Diese sind einsehbar unter blickwert.at/agb/.</div>
+</htmlpagefooter><div class="titel">Angebot Internetauftritt sk-rae.at – Individual Standard</div>
+
+<h2 class="erste">Zielsetzung des Onlineangebots:</h2>
+<p>Der aktuelle Internetauftritt sk-rae.at soll im Rahmen einer Neugestaltung modernisiert werden. Hierfür wird das bisherige Design und vorhandene Inhalte analysiert und je nach Wünschen angepasst. Ziel ist ein moderner und technisch sauber umgesetzter Internetauftritt, der die bestehenden Inhalte strukturiert und zeitgemäß darstellt.</p>
+
+<h2>Projektablauf</h2>
+<p></p>
+
+
+<h2 style="margin-top:12mm">Angebotspositionen</h2>
+<table class="pos">
+  <thead><tr><th colspan="2">Beschreibung</th></tr></thead>
+  <tbody>
+    <tr><td colspan="2">Analyse des bestehenden Internetauftritts</td></tr>
+    <tr><td colspan="2">Modernisierung des Layouts auf Basis von bestehendem Corporate Design / Farbschemata</td></tr>
+    
+    <tr class="summe"><td>Netto</td><td class="betrag">€&nbsp;2.248,00</td></tr>
+    <tr class="summe"><td>Standard USt (20 %)</td><td class="betrag">€&nbsp;449,60</td></tr>
+    <tr class="summe ende"><td>Gesamt Brutto</td><td class="betrag">€&nbsp;2.697,60</td></tr>
+  </tbody>
+</table>
+
+<p class="schluss">Vielen Dank für Ihr Interesse!<br />David Wögerer</p>
+<sethtmlpagefooter name="footerlast" value="on" />

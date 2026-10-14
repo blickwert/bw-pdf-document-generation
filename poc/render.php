@@ -2,7 +2,7 @@
 /**
  * Proof of Concept: Template "angebot" -> PDF (mPDF).
  *
- * Aufruf:  php render.php [--scenario=kurz|normal|lang] [--demo-last] [--html-only]
+ * Aufruf:  php render.php [--scenario=mini|kurz|normal|lang|tabelle] [--demo-last] [--html-only]
  *   kurz    ~1 Seite  (Test: Erst- und Endseite sind dieselbe Seite)
  *   normal  ~2 Seiten (wie das Beispiel-PDF)
  *   lang    3+ Seiten (Test: laufende Seiten, Tabellenumbruch)
@@ -20,7 +20,14 @@ $outDir   = __DIR__ . '/out';
 /* ---------- 1) Daten ---------- */
 $data = json_decode(file_get_contents($tplDir . '/sample-data.json'), true, 512, JSON_THROW_ON_ERROR);
 
-if ($scenario === 'kurz') {
+if ($scenario === 'mini') {
+    $data['schritte']   = [];
+    $data['projektablauf_intro'] = '';
+    $data['positionen'] = array_slice($data['positionen'], 0, 2);
+} elseif ($scenario === 'tabelle') {
+    // Tabelle läuft über den Seitenumbruch: Kopfwiederholung / zerrissene Zeilen prüfen
+    $data['positionen'] = array_merge(...array_fill(0, 7, $data['positionen']));
+} elseif ($scenario === 'kurz') {
     $data['schritte']   = array_slice($data['schritte'], 0, 1);
     $data['positionen'] = array_slice($data['positionen'], 0, 2);
 } elseif ($scenario === 'lang') {
